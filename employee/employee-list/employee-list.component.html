@@ -1,0 +1,48 @@
+<div class="header">
+  <h1 class="page-header">
+    All Employees Report
+  </h1>
+</div>
+<div id="page-inner">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Advanced Tables -->
+      <div class="card">
+        <div class="card-content">
+          <div class="table-responsive">
+            <div style="text-align: right; margin: 10px;"><a  *ngIf="user_level_id === '1'" class="btn btn-sm btn-success" style="padding: 5px; font-size: 16px;" routerLink="/admin/employee/add">Add New Employee</a>&nbsp;</div>
+            <table class="table table-striped table-hover" style="font-size: 13px;">
+              <thead class="thead-dark">
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Date of Birth</th>
+                  <th>Contact</th>
+                  <th>City</th>
+                  <th>State</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let employee of employees | async">
+                  <td>{{employee.employee_id}}</td>
+                  <td>{{employee.employee_first_name}} {{employee.employee_last_name}}</td>
+                  <td>{{employee.employee_email}}</td>
+                  <td>{{employee.employee_dob}}</td>
+                  <td>{{employee.employee_mobile}}</td>
+                  <td>{{employee.employee_city}}</td>
+                  <td>{{employee.employee_state}}</td>
+                  <td>
+                    <a  *ngIf="user_level_id === '1'" class="btn btn-sm btn-primary glyphicon glyphicon-edit" style="padding: 5px; font-size: 16px;" routerLink="/admin/employee/update-employee/{{employee.employee_id}}"></a>&nbsp;
+                    <button  *ngIf="user_level_id === '1'" class="btn btn-sm btn-danger glyphicon glyphicon-trash" (click)="deleteEmployee(employee.employee_id)" style="padding: 5px; font-size: 16px;"></button>                  
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

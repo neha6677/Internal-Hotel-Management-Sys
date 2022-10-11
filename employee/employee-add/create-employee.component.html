@@ -1,0 +1,94 @@
+<div class="header">
+  <h1 class="page-header">
+    {{isUpdate ? "Update Employee Details": "Add New Employee"}}
+  </h1>
+</div>
+<div id="page-inner">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Advanced Tables -->
+      <div class="card">
+        <div class="card-content">
+            <form (ngSubmit)="onSubmit()" ngNativeValidate>
+              <div class="alert alert-{{type}}" role="alert" *ngIf="msg">
+                {{msg}}
+              </div>
+  
+              <h2 class="h2form" style="margin-top: 20px;">User Information</h2>
+              <div class="form-row">
+            
+              <div class="col">
+                <label for="name">First Name</label>
+                <input [disabled]="readonly" type="text" class="form-control" id="employee_first_name" required
+                  [(ngModel)]="employee.employee_first_name" name="employee_first_name">
+              </div>
+              <div class="col">
+                <label for="name">Last Name</label>
+                <input [disabled]="readonly" type="text" class="form-control" id="employee_last_name" required
+                  [(ngModel)]="employee.employee_last_name" name="employee_last_name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <label for="name">Email ID</label>
+                <input type="email" class="form-control" id="employee_email" required
+                  [(ngModel)]="employee.employee_email" name="employee_email">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <label for="name">Date of Birth</label>
+                <input [disabled]="readonly" type="date" class="form-control" id="employee_dob" required [(ngModel)]="employee.employee_dob"
+                  name="employee_dob">
+              </div>
+              <div class="col">
+                <label for="name">Mobile</label>
+                <input type="text" class="form-control" id="employee_mobile" required
+                  [(ngModel)]="employee.employee_mobile" name="employee_mobile">
+              </div>
+            </div>
+            <div class="form-row">
+             
+
+              <div class="col">
+                <label for="name">Nationality</label>
+                <input [readonly]="readonly" type="text" class="form-control" id="employee_nationalty" required
+                  [(ngModel)]="employee.employee_nationalty" name="employee_nationalty">
+              </div>
+            </div>
+            <h2 class="h2form" style="margin-top: 20px;">User Address Details</h2>
+            <div class="form-row">
+              <div class="col">
+                <label for="name">Full Address</label>
+                <input type="text" class="form-control" id="employee_address" required
+                  [(ngModel)]="employee.employee_address" name="employee_address">
+              </div>
+
+              <div class="col">
+                <label for="name">City</label>
+                <input type="text" class="form-control" id="employee_city" required
+                  [(ngModel)]="employee.employee_city" name="employee_city">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <label for="name">State</label>
+                <input type="text" class="form-control" id="employee_state" required
+                  [(ngModel)]="employee.employee_state" name="employee_state">
+              </div>
+              <div class="col">
+                <label for="name">Country</label>
+                <input type="text" class="form-control" id="employee_country" required
+                  [(ngModel)]="employee.employee_country" name="employee_country">
+              </div>
+            </div>
+            <div style="text-align: right; margin-top: 25px;">
+              <button type="submit" class="btn btn-success" style="width: 150px;">Submit</button>&nbsp;&nbsp;
+              <button type="reset" class="btn btn-danger" style="width: 150px;">Reset</button>
+            </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
